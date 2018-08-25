@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using Domain;
 using Repository;
+using Application;
 
 namespace Test
 {
@@ -21,27 +22,27 @@ namespace Test
                 Senha = "senha"
             };
 
-            UsuarioRepository dbUser = new UsuarioRepository();
+            //UsuarioRepository dbUser = new UsuarioRepository();
 
-            dbUser.AddUsuario(usuario);
+            //dbUser.AddUsuario(usuario);
 
-            List<Usuario> lista;
-            lista = dbUser.GetListaUsuario();
-            Console.WriteLine(lista[0].Nome);
+            //List<Usuario> lista;
+            //lista = dbUser.GetListaUsuario();
+            //Console.WriteLine(lista[0].Nome);
 
-            //UsuarioApplication controle = new UsuarioApplication();
+           UsuarioApplication controle = new UsuarioApplication();
 
-            //Usuario teste = controle.GetUsuario(usuario);
+            Usuario teste = controle.GetUsuario(usuario);
 
             //Usuario teste = dbUser.ConsultaUsuario(usuario);
-            //if (teste.Senha == usuario.Senha)
-            //{
-            //Console.WriteLine(teste.Nome);
-            // }
-            // else
-            // {
-            //      Console.WriteLine("Senha Incorreta");
-            //  }
+            if (teste.Senha == usuario.Senha)
+            {
+            Console.WriteLine(teste.Nome);
+             }
+            else
+            {
+                  Console.WriteLine("Senha Incorreta");
+              }
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");

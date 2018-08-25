@@ -22,6 +22,12 @@ namespace WebService.Controllers
             return true;
         }
 
+        [HttpGet]
+        public bool GetUsuario()
+        {
+            return true;
+        }
+
 
 
 
