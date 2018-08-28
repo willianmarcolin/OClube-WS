@@ -79,19 +79,19 @@ namespace Application
 
         }
 
-        public Boolean CastID(Usuario usuario)
-        {
+        //public Boolean CastID(Usuario usuario)
+       // {
 
-            Usuario consulta;
-            consulta = dbUser.ConsultaUsuario(usuario);
+        //    Usuario consulta;
+        //    consulta = dbUser.ConsultaUsuario(usuario);
 
-            string ID;
-            ID = consulta._id.ToString();
+        //    string ID;
+        //    ID = consulta._id.ToString();
 
-            consulta._id = ID.;
+        //    consulta._id = ID;
 
-            return true;
-        }
+       //     return true;
+       // }
 
     }
 }
