@@ -9,6 +9,7 @@ using Domain;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
+using WebService.Models;
 
 namespace WebService.Controllers
 {
@@ -23,15 +24,31 @@ namespace WebService.Controllers
         }
 
         [HttpPost]
-        public bool AddUsuario(Usuario usuario)
-        {   
+        public bool AddUsuario(UsuarioDTO usuarioDTO)
+        {
+            Usuario usuario = new Usuario
+            {
+                Nome = usuarioDTO.Nome,
+                Login = usuarioDTO.Login,
+                Email = usuarioDTO.Email,
+                Senha = usuarioDTO.Senha
+            };
+
+            
             return usuarioApplication.AddUsuario(usuario);
         }
 
         [HttpGet]
-        public bool ValidarUsuario(Usuario usuario)
+        public bool ValidarUsuario(string usuario, string senha)
         {
-            return usuarioApplication.ValidarSenha(usuario);
+            Usuario usuarioConsulta = new Usuario
+            {
+                Nome = "Juninho",
+                Login = usuario,
+                Email = "juninho_play@fodasse.com",
+                Senha =  senha
+            };
+            return usuarioApplication.ValidarSenha(usuarioConsulta);
         }
 
         //[HttpGet]

@@ -31,11 +31,18 @@ namespace Application
                 return false;
             }
 
-            if (usuario.Senha == consulta.Senha)
+            try
             {
-                return true;
+                if (usuario.Senha == consulta.Senha)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception)
             {
                 return false;
             }
@@ -60,27 +67,26 @@ namespace Application
             {
                 Usuario consultaExiste;
                 consultaExiste = dbUser.ConsultaUsuario(usuario);
-
-                if (consultaExiste.Login == usuario.Login)
-                {
-                    return false;
-                }
-                else
+                
+                if (consultaExiste == null)
                 {
                     dbUser.AddUsuario(usuario);
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
+                //}
             }
-
             catch (Exception)
             {
                 return false;
             }
-
         }
 
         //public Boolean CastID(Usuario usuario)
-       // {
+        // {
 
         //    Usuario consulta;
         //    consulta = dbUser.ConsultaUsuario(usuario);

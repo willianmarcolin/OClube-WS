@@ -22,9 +22,9 @@ namespace Test
                 Senha = "senha"
             };
 
-            //UsuarioRepository dbUser = new UsuarioRepository();
+            UsuarioRepository dbUser = new UsuarioRepository();
 
-            //dbUser.AddUsuario(usuario);
+            dbUser.AddUsuario(usuario);
 
             //List<Usuario> lista;
             //lista = dbUser.GetListaUsuario();
