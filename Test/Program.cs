@@ -19,18 +19,22 @@ namespace Test
                 Nome = "Juninho",
                 Login = "juninho.play",
                 Email = "juninho_play@fodasse.com",
-                Senha = "senha"
+                Senha = "senha",
+                Posicao = "Atacante",
+                PosicaoSecundaria = "Meia-Atacante"
             };
 
-            UsuarioRepository dbUser = new UsuarioRepository();
+            //UsuarioRepository dbUser = new UsuarioRepository();
 
-            dbUser.AddUsuario(usuario);
+            //dbUser.AddUsuario(usuario);
 
             //List<Usuario> lista;
             //lista = dbUser.GetListaUsuario();
             //Console.WriteLine(lista[0].Nome);
 
            UsuarioApplication controle = new UsuarioApplication();
+
+            controle.EditUsuario(usuario);
 
             Usuario teste = controle.GetUsuario(usuario);
 

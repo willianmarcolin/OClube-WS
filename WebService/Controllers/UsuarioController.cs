@@ -23,7 +23,9 @@ namespace WebService.Controllers
             usuarioApplication = new UsuarioApplication();
         }
 
+
         [HttpPost]
+        [Route ("api/Usuario/AddUsuario")]
         public bool AddUsuario(UsuarioDTO usuarioDTO)
         {
             Usuario usuario = new Usuario
@@ -39,6 +41,7 @@ namespace WebService.Controllers
         }
 
         [HttpGet]
+        [Route("api/Usuario/ValidarUsuario")]
         public bool ValidarUsuario(string usuario, string senha)
         {
             Usuario usuarioConsulta = new Usuario
@@ -51,11 +54,24 @@ namespace WebService.Controllers
             return usuarioApplication.ValidarSenha(usuarioConsulta);
         }
 
-        //[HttpGet]
-        //public Usuario GetUsuario(Usuario usuario)
-        //{
-        //    return usuarioApplication.GetUsuario(usuario);
-       // }
+        [HttpGet]
+        [Route("api/Usuario/GetUsuario")]
+        public Usuario GetUsuario(string Login)
+        {
+            Usuario usuarioConsulta = new Usuario
+            {
+                Login = Login,
+            };
+
+            return usuarioApplication.GetUsuario(usuarioConsulta);
+        }
+
+        [HttpPut]
+        [Route("api/Usuario/EditUsuario")]
+        public bool EditUsuario(Usuario usuario)
+        {
+            return usuarioApplication.EditUsuario(usuario);
+        }
 
 
     }

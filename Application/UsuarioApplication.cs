@@ -77,7 +77,21 @@ namespace Application
                 {
                     return false;
                 }
-                //}
+               
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+        public Boolean EditUsuario(Usuario usuario)
+        {
+            try
+            {
+                  dbUser.EditarUsuario(usuario);
+                  return true;
             }
             catch (Exception)
             {
@@ -96,8 +110,8 @@ namespace Application
 
         //    consulta._id = ID;
 
-       //     return true;
-       // }
+        //     return true;
+        // }
 
     }
 }
