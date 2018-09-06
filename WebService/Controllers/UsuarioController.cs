@@ -46,9 +46,7 @@ namespace WebService.Controllers
         {
             Usuario usuarioConsulta = new Usuario
             {
-                Nome = "Juninho",
                 Login = usuario,
-                Email = "juninho_play@fodasse.com",
                 Senha =  senha
             };
             return usuarioApplication.ValidarSenha(usuarioConsulta);
